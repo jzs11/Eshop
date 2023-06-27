@@ -33,18 +33,23 @@ namespace Eshop
          app.UseRouting();
 
          app.UseAuthorization();
-
          app.MapRazorPages();
 
-
          app.MapControllerRoute(
-             name: "area",
+             name: "area-sl",
              pattern: "{area:slugify}/{controller:slugify}/{action=Index}/{id?}");
 
          app.MapControllerRoute(
-             name: "default",
+             name: "default-ls",
              pattern: "{controller:slugify}/{action=Index}/{id?}");
 
+         app.MapControllerRoute(
+             name: "area",
+             pattern: "{area}/{controller}/{action=Index}/{id?}");
+
+         app.MapControllerRoute(
+             name: "default",
+             pattern: "{controller}/{action=Index}/{id?}");
 
          app.Run();
       }
